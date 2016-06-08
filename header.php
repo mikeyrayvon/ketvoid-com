@@ -47,17 +47,16 @@
 
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
   <?php wp_head(); ?>
-  <?php 
-    if (is_home()) {
-      $bg_color = IGV_get_option('_igv_home_bg_color');
-      $bg_image = IGV_get_option('_igv_home_bg_image');
-    } else if (is_single()) {
-      $bg_color = get_post_meta($post->ID, '_igv_bg_color');
-    }
-  ?>
 </head>
 <body <?php 
   body_class(); 
+
+  if (is_home()) {
+    $bg_color = IGV_get_option('_igv_home_bg_color');
+    $bg_image = IGV_get_option('_igv_home_bg_image');
+  } else if (is_single()) {
+    $bg_color = get_post_meta($post->ID, '_igv_bg_color')[0];
+  }
 
   echo 'style="';
 
