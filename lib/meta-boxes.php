@@ -53,6 +53,12 @@ function igv_cmb_metaboxes() {
     'default' => '#d3d3d3',
   ) );
 
+  $cmb->add_field( array(
+    'name'    => __( 'Audio', 'IGV' ),
+    'id'   => $prefix . 'audio',
+    'type' => 'file',
+  ) );
+
   $group_images = $cmb->add_field( array(
     'id'          => $prefix . 'images',
     'type'        => 'group',
